@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -19,9 +20,6 @@ public class Comment implements Serializable {
     private String commentText;
     private Integer userId;
     private Integer postId;
-
-    public Comment() {
-    }
 
     public Comment(Integer id, String commentText, Integer userId, Integer postId) {
         this.id = id;

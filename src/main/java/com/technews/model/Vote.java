@@ -1,10 +1,7 @@
 package com.technews.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -19,15 +16,8 @@ public class Vote implements Serializable {
     private Integer userId;
     private Integer postId;
 
-    public Vote() {
-    }
     public Vote(Integer id, Integer userId, Integer postId) {
         this.id = id;
-        this.userId = userId;
-        this.postId = postId;
-    }
-
-    public Vote(Integer userId, Integer postId) {
         this.userId = userId;
         this.postId = postId;
     }
@@ -55,6 +45,7 @@ public class Vote implements Serializable {
     public void setPostId(Integer postId) {
         this.postId = postId;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -76,5 +67,4 @@ public class Vote implements Serializable {
                 ", postId=" + postId +
                 '}';
     }
-
 }
