@@ -3,7 +3,6 @@ package com.technews.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,7 +14,8 @@ import java.util.Objects;
 @Table(name = "post")
 public class Post implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String title;
     private String postUrl;
     @Transient
@@ -29,7 +29,7 @@ public class Post implements Serializable {
     private Date postedAt = new Date();
     @NotNull
     @Temporal(TemporalType.DATE)
-    @Column(name = "posted_at")
+    @Column(name = "updated_at")
     private Date updatedAt = new Date();
     // Need to use FetchType.LAZY to resolve multiple bags exception
     @OneToMany(mappedBy = "postId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
