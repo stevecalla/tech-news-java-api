@@ -14,7 +14,7 @@
     </h1>
     <nav>
       <div th:if="${loggedIn}">
-        <a th:href="@{/dashboard}">dashboard</a>
+        <a th:href="@{/dashboard/}">dashboard</a>
         <a th:href="@{/users/logout}">logout</a>
       </div>
       <div th:unless="${loggedIn}">

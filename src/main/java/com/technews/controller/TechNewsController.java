@@ -60,7 +60,7 @@ public class TechNewsController {
         sessionUser.setLoggedIn(true);
         request.getSession().setAttribute("SESSION_USER", sessionUser);
 
-        return "redirect:/dashboard";
+        return "redirect:/dashboard/";
     }
     @PostMapping("/users")
     public String signup(@ModelAttribute User user, Model model, HttpServletRequest request) throws Exception {
@@ -93,7 +93,7 @@ public class TechNewsController {
         sessionUser.setLoggedIn(true);
         request.getSession().setAttribute("SESSION_USER", sessionUser);
 
-        return "redirect:/dashboard";
+        return "redirect:/dashboard/";
     }
 
     @PostMapping("/posts")
@@ -110,7 +110,7 @@ public class TechNewsController {
             post.setUserId(sessionUser.getId());
             postRepository.save(post);
 
-            return "redirect:/dashboard";
+            return "redirect:/dashboard/";
         }
     }
     @PostMapping("/posts/{id}")
@@ -118,13 +118,14 @@ public class TechNewsController {
 
         if (request.getSession(false) == null) {
             model.addAttribute("user", new User());
-            return "redirect/dashboard";
+            return "redirect:/dashboard/";
         } else {
             Post tempPost = postRepository.getById(id);
             tempPost.setTitle(post.getTitle());
             postRepository.save(tempPost);
 
-            return "redirect:/dashboard";
+//            return "redirect:/login";
+            return "redirect:/dashboard/";
         }
     }
     @PostMapping("/comments")

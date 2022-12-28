@@ -76,7 +76,7 @@ public class HomePageController {
         return "homepage";
     }
 
-    @GetMapping("/dashboard")
+    @GetMapping("/dashboard/")
     public String dashboardPageSetup(Model model, HttpServletRequest request) throws Exception {
 
         if (request.getSession(false) != null) {
