@@ -15,7 +15,9 @@
 ## Description
 
 ```
-This app allows me to develop my first full stack Java app.
+This app allowed me to develop my first full stack Java app.
+
+As a user, I want to be able to post, comment and like tech blog information.
 
 ```
 
